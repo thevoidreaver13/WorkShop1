@@ -1,0 +1,30 @@
+#container{
+
+    margin: 0 auto;
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+}
+header{
+    width: 800px;
+    height: 150px;
+    border: 1px solid sandybrown;
+}
+nav{
+    float: left;
+    width: 200px;
+    height: 446px;
+    border: 1px solid aqua;
+}
+aside{
+    float: right;
+    width: 200px;
+    height: 446px;
+    border: 1px solid seagreen;
+}
+article{
+    margin: 0 auto;
+    width: 394px;
+    height: 446px;
+    border: 1px solid red;
+}
