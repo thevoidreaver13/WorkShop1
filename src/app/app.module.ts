@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -21,39 +22,39 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 // Routes
 export const router: Routes = [
- { path: '', component: HomeComponent },
- { path: 'login', component: LoginComponent },
- { path: 'signup', component: SignupComponent },
- { path: 'profile', component: ProfileComponent }
+    { path: '', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ]
 // Config Firebase
 export const firebaseConfig = {
- apiKey: "AIzaSyA3LCgyETuSdRIqokIX7vf0XB8DAMn0qxg",
- authDomain: "dnasoccer-7afaf.firebaseapp.com",
- databaseURL: "https://dnasoccer-7afaf.firebaseio.com",
- projectId: "dnasoccer-7afaf",
- storageBucket: "dnasoccer-7afaf.appspot.com",
- messagingSenderId: "77234107748"
+    apiKey: "AIzaSyA3LCgyETuSdRIqokIX7vf0XB8DAMn0qxg",
+    authDomain: "dnasoccer-7afaf.firebaseapp.com",
+    databaseURL: "https://dnasoccer-7afaf.firebaseio.com",
+    projectId: "dnasoccer-7afaf",
+    storageBucket: "dnasoccer-7afaf.appspot.com",
+    messagingSenderId: "77234107748"
 };
 @NgModule({
- declarations: [
- AppComponent,
- HomeComponent,
- LoginComponent,
- NavbarComponent,
- ProfileComponent,
- SignupComponent
- ],
- imports: [
- BrowserModule,
- FormsModule,
- ReactiveFormsModule,
- HttpModule,
- RouterModule.forRoot(router),
- AngularFireAuthModule,
- AngularFireModule.initializeApp(firebaseConfig)
- ],
- providers: [AngularFireDatabase],
- bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        LoginComponent,
+        NavbarComponent,
+        ProfileComponent,
+        SignupComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        RouterModule.forRoot(router),
+        AngularFireAuthModule,
+        AngularFireModule.initializeApp(firebaseConfig)
+    ],
+    providers: [AuthService, AngularFireDatabase, AuthGuard],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
